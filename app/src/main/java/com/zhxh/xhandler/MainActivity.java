@@ -9,35 +9,39 @@ import android.widget.TextView;
 
 import java.lang.ref.WeakReference;
 
+/**
+ * Created by zhxh on 2018/4/19.
+ */
 
 public class MainActivity extends AppCompatActivity {
-    //容易造成内存泄漏的写法：
-//    private Handler mHandler = new Handler() {
-//        @Override
-//        public void handleMessage(Message msg) {
-//            //...
-//        }
-//    };
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-//        loadData();
-//    }
-//
-//    private void loadData() {
-//        //...request
-//        Message message = Message.obtain();
-//        mHandler.sendMessage(message);
-//    }
-//
-//    static class TestResource {
-//        private static final String TAG = "";
-//        //...
-//    }
 
-    //    修复内存泄漏的方法：
+    //容易造成内存泄漏的写法：
+    //private Handler mHandler = new Handler() {
+    //    @Override
+    //    public void handleMessage(Message msg) {
+    //        //...
+    //    }
+    //};
+
+    //@Override
+    //protected void onCreate(Bundle savedInstanceState) {
+    //    super.onCreate(savedInstanceState);
+    //    setContentView(R.layout.activity_main);
+    //    loadData();
+    //}
+
+    //private void loadData() {
+    //    //...request
+    //    Message message = Message.obtain();
+    //    mHandler.sendMessage(message);
+    //}
+
+    //static class TestResource {
+    //    private static final String TAG = "";
+    //    //...
+    //}
+
+    //修复内存泄漏的方法：
     private MyHandler mHandler = new MyHandler(this);
     private TextView mTextView;
 
@@ -52,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         public void handleMessage(Message msg) {
             MainActivity activity = (MainActivity) reference.get();
             if (activity != null) {
-                activity.mTextView.setText("");
+                activity.mTextView.setText("XHandler");
             }
         }
     }
@@ -61,11 +65,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mTextView = findViewById(R.id.mTextView);
+
         loadData();
     }
 
     private void loadData() {
-        //...request
         Message message = Message.obtain();
         mHandler.sendMessage(message);
     }
