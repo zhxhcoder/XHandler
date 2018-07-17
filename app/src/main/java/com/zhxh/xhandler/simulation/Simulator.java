@@ -76,9 +76,9 @@ public class Simulator implements Runnable {
             case 3:
                 return "那我请你吧";
             case 4:
-                return "真的";
+                return "真的?";
             case 5:
-                return "真的";
+                return "真的!";
             case 6:
                 return "开心!";
             case 7:
