@@ -1,11 +1,16 @@
 package com.zhxh.xhandler;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+
+import com.zhxh.xhandler.simulation.MainActivity;
 
 import java.lang.ref.WeakReference;
 
@@ -44,6 +49,7 @@ public class MainRightActivity extends AppCompatActivity {
     //修复内存泄漏的方法：
     private MyHandler mHandler = new MyHandler(this);
     private TextView mTextView;
+    private Button simulator;
 
     private static class MyHandler extends Handler {
         private WeakReference<Context> reference;
@@ -67,6 +73,14 @@ public class MainRightActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_right);
 
         mTextView = findViewById(R.id.mTextView);
+        simulator = findViewById(R.id.simulator);
+
+        simulator.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainRightActivity.this, MainActivity.class));
+            }
+        });
 
         loadData();
     }
