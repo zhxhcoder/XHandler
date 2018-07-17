@@ -13,7 +13,7 @@ import java.lang.ref.WeakReference;
  * Created by zhxh on 2018/4/19.
  */
 
-public class MainActivity extends AppCompatActivity {
+public class MainRightActivity extends AppCompatActivity {
 
     //容易造成内存泄漏的写法：
     //private Handler mHandler = new Handler() {
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void handleMessage(Message msg) {
-            MainActivity activity = (MainActivity) reference.get();
+            MainRightActivity activity = (MainRightActivity) reference.get();
             if (activity != null) {
                 activity.mTextView.setText("XHandler");
             }
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_right);
 
         mTextView = findViewById(R.id.mTextView);
 
