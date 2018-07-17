@@ -52,7 +52,7 @@ public class Simulator implements Runnable {
             }
 
             try {
-                mPostOffice.sendPost(new Post(client1Id, client2Id, getRandomMessage()));
+                mPostOffice.sendPost(new PostData(client1Id, client2Id, getRandomMessage()));
             } catch (Exception e) {
                 e.printStackTrace();
             }

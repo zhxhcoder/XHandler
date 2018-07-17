@@ -34,7 +34,7 @@ public class Client {
         return mId;
     }
 
-    public synchronized void onPostReceived(Post post) {
+    public synchronized void onPostReceived(PostData post) {
         mCallback.onNewPost(
                 sClientMap.get(post.getReceiverId()),
                 sClientMap.get(post.getSenderId()),

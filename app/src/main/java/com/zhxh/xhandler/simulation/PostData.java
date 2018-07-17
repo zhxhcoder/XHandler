@@ -5,13 +5,13 @@ package com.zhxh.xhandler.simulation;
  * Created by zhxh on 2018/4/19.
  */
 
-public class Post {
+public class PostData {
 
     private Integer senderId;
     private Integer receiverId;
     private String message;
 
-    public Post(Integer senderId, Integer receiverId, String message) {
+    public PostData(Integer senderId, Integer receiverId, String message) {
         this.senderId = senderId;
         this.receiverId = receiverId;
         this.message = message;

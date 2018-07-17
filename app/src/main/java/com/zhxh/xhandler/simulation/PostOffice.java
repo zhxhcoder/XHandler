@@ -38,9 +38,9 @@ public class PostOffice extends HandlerThread {
                         Client client = clientWeakReference.get();
                         if (client != null) {
                             if (msg.obj instanceof String) {
-                                client.onPostReceived(new Post(msg.arg1, msg.arg2, (String) msg.obj));
+                                client.onPostReceived(new PostData(msg.arg1, msg.arg2, (String) msg.obj));
                             } else {
-                                client.onPostReceived(new Post(msg.arg1, msg.arg2, "No Body present"));
+                                client.onPostReceived(new PostData(msg.arg1, msg.arg2, "No Body present"));
                             }
                         }
                     }
@@ -48,12 +48,12 @@ public class PostOffice extends HandlerThread {
         mClientDetailsMap.put(client.getId(), handler);
     }
 
-    public synchronized void sendPost(Post post) throws InvalidRequestException, NotRegisteredException {
+    public synchronized void sendPost(PostData post) throws InvalidRequestException, NotRegisteredException {
         if (post == null) {
-            throw new InvalidRequestException("Post can't be null");
+            throw new InvalidRequestException("PostData can't be null");
         }
         if (post.getReceiverId() == null || !mClientDetailsMap.containsKey(post.getReceiverId())) {
-            throw new NotRegisteredException("Post receiver is not registered");
+            throw new NotRegisteredException("PostData receiver is not registered");
         }
         Handler handler = mClientDetailsMap.get(post.getReceiverId());
         Message message = new Message();
