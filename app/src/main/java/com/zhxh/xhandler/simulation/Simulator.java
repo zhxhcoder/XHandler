@@ -2,11 +2,9 @@ package com.zhxh.xhandler.simulation;
 
 import java.util.Random;
 
-
 /**
  * Created by zhxh on 2018/4/19.
  */
-
 
 public class Simulator implements Runnable {
 
@@ -70,27 +68,27 @@ public class Simulator implements Runnable {
 
         switch (val) {
             case 0:
-                return "Happy Christmas!";
+                return "吃饭了吗!";
             case 1:
-                return "How are you buddy?";
+                return "我吃了要请客吗";
             case 2:
-                return "I am so proud of you!";
+                return "呵呵!";
             case 3:
-                return "It's holiday hahaha!";
+                return "那我请你吧";
             case 4:
-                return ":P";
+                return "真的";
             case 5:
-                return "LOL!";
+                return "真的";
             case 6:
-                return "Wow!";
+                return "开心!";
             case 7:
-                return "Bugger off!";
+                return "开玩笑的!";
             case 8:
-                return "I love you!";
+                return "我去";
             case 9:
-                return "Go to hell :>";
+                return "哈哈";
             default:
-                return "Hmm";
+                return "呵呵";
         }
     }
 
