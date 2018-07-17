@@ -18,3 +18,8 @@ Handler enqueues task in the MessageQueue using Looper and also executes them wh
 Looper is a worker that keeps a thread alive, loops through MessageQueue and sends messages to the corresponding handler to process.
 
 Finally Thread gets terminated by calling Looper’s quit() method.
+
+
+
+参考这篇文章
+https://blog.mindorks.com/android-core-looper-handler-and-handlerthread-bd54d69fe91a
