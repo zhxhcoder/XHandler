@@ -6,29 +6,29 @@ package com.zhxh.xhandler.simulation;
 
 public class PostData {
 
-    private Integer senderId;
-    private Integer receiverId;
+    private int senderId;
+    private int receiverId;
     private String message;
 
-    public PostData(Integer senderId, Integer receiverId, String message) {
+    public PostData(int senderId, int receiverId, String message) {
         this.senderId = senderId;
         this.receiverId = receiverId;
         this.message = message;
     }
 
-    public Integer getSenderId() {
+    public int getSenderId() {
         return senderId;
     }
 
-    public void setSenderId(Integer senderId) {
+    public void setSenderId(int senderId) {
         this.senderId = senderId;
     }
 
-    public Integer getReceiverId() {
+    public int getReceiverId() {
         return receiverId;
     }
 
-    public void setReceiverId(Integer receiverId) {
+    public void setReceiverId(int receiverId) {
         this.receiverId = receiverId;
     }
 
